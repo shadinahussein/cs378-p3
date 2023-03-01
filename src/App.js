@@ -162,7 +162,7 @@ function App() {
           onChange={(event) => setCity(event.target.value)}
           
         />
-        <button className="addShortcut" onClick={searchLocation}>+</button>
+        <button className="addShortcut" onClick={searchLocation}>Search</button>
       </div>
 
       <div className="top">
