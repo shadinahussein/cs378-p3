@@ -67,11 +67,6 @@ function App() {
   
   const [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState("");
-  // const [coordinates, setCoordinates] = useState({
-  //   lat: null,
-  //   lon: null,
-  //   cityName: "",
-  // });
   const [cityName, setCityName] = useState("")
   const [hourTime, setHourTime] = useState([])
   const [hourlyTemperatures, setHourlyTemperatures] = useState([]);
@@ -86,9 +81,6 @@ function App() {
       const geoData = await pullJson(geoUrl)
       const location = geoData.results[0]
       console.log("location entry", location, location.latitude, location.name)
-      // setCoordinates({lat: location.latitude,
-      //                 lon: location.longitude, 
-      //                 cityName: location.name})
       setCityName(location.name)
       console.log("cityName", cityName)
       const weatherData1 = await getWeather(location)
@@ -96,7 +88,6 @@ function App() {
 
       //now get hourly forcast
       const curTime = weatherData1.current_weather.time
-      // console.log("cur time", curTime)
       const forcastHours = await getHours(weatherData1.hourly, curTime)
       setHourTime(forcastHours)
       console.log("hours of day", forcastHours)
@@ -150,8 +141,6 @@ function App() {
     <Container> 
       <div className="threeButtons">
         <div className="Row">
-          {/* <button onClick={loadAustin}>Austin</button>
-          <button onClick={loadHouston}>Houston</button> */}
           <div className='col'>
             <button ref={buttonRef} onClick={() => savedButtonWeather("Austin")}>Austin</button>
           </div>
